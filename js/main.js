@@ -17,19 +17,19 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-console.log(getRandomIntInclusive(3, 1));
+getRandomIntInclusive(3, 1);
 
 //Функция проверки минимальной и максимальной длины строки
 
 function commentLength (stroke, minLength, maxLength) {
   if (stroke.length < minLength) {
-    console.log(`Длинна комментария не может быть меньше ${ minLength } символов`);
+    return false;
   }
   else if (stroke.length > maxLength) {
-    console.log(`Длинна комментария не может быть больше ${ maxLength } символов`);
+    return false;
   }
   else {
-    console.log(stroke);
+    return true;
   }
 }
 
