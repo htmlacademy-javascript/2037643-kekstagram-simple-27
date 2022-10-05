@@ -22,12 +22,7 @@ getRandomIntInclusive(3, 1);
 //Функция проверки минимальной и максимальной длины строки
 
 function commentLength (stroke, maxLength) {
-  if (stroke.length > maxLength) {
-    return false;
-  }
-  else {
-    return true;
-  }
+  return stroke.length <= maxLength;
 }
 
 commentLength('ааа', 140);
