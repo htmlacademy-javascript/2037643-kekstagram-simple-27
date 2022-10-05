@@ -27,42 +27,39 @@ function commentLength (stroke, maxLength) {
 
 const photoDescriptionCount = 25;//Количество объектов которые нужно создать
 
-const createArrayLikes = function () {//Функция для создания массива с данными LIKES
+const createArrayLikes = function (count) {//Функция для создания массива с данными LIKES
   const likes = [];
-  for (let i = 0; i < photoDescriptionCount; i++) {
+  for (let i = 0; i < count; i++) {
     likes[i] = getRandomIntInclusive(15, 200);
   }
   return likes;
 };
 
-const LIKES = createArrayLikes();//Массив с данными LIKES
+const LIKES = createArrayLikes(photoDescriptionCount);//Массив с данными LIKES
 
-const createArrayComments = function () {//Функция для создания массива с данными COMMENTS
+const createArrayComments = function (count) {//Функция для создания массива с данными COMMENTS
   const comments = [];
-  for (let i = 0; i < photoDescriptionCount; i++) {
+  for (let i = 0; i < count; i++) {
     comments[i] = getRandomIntInclusive(0, 200);
   }
   return comments;
 };
 
-const COMMENTS = createArrayComments();//Массив с данными COMMENTS
+const COMMENTS = createArrayComments(photoDescriptionCount);//Массив с данными COMMENTS
 
 const createPhotoDescription = function () {//Функция для создания объекта
   return {
     id: '',
     url: '',
     description: `Фото ${getRandomIntInclusive(1, photoDescriptionCount)}`,
-    likes: LIKES[getRandomIntInclusive(0, LIKES.length)],
+    likes: LIKES[getRandomIntInclusive(15, LIKES.length)],
     comments: COMMENTS[getRandomIntInclusive(0, COMMENTS.length)],
   };
 };
 
 const photos = Array.from({length: photoDescriptionCount}, createPhotoDescription);//Создаём и наполняем массив созданными объектами
 
-for (let i = 0; i < photos.length; i++) {//Цикл для заполнения ключа id в созданных объектах
+for (let i = 0; i < photos.length; i++) {//Цикл для заполнения ключа id и url в созданных объектах
   photos[i].id = i + 1;
-}
-
-for (let i = 0; i < photos.length; i++) {//Цикл для заполнения ключа url в созданных объектах
   photos[i].url = `photos/${i + 1}.jpg`;
 }
