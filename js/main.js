@@ -47,19 +47,20 @@ const createArrayComments = function (count) {//Функция для созда
 
 const COMMENTS = createArrayComments(photoDescriptionCount);//Массив с данными COMMENTS
 
-const createPhotoDescription = function () {//Функция для создания объекта
-  return {
-    id: '',
-    url: '',
-    description: `Фото ${getRandomIntInclusive(1, photoDescriptionCount)}`,
-    likes: LIKES[getRandomIntInclusive(15, LIKES.length)],
-    comments: COMMENTS[getRandomIntInclusive(0, COMMENTS.length)],
-  };
+const createPhotosArray = function (photosQuantity) {//Функция для создания массива из объектов с описанием фотографий
+  let photosArray = [];
+
+  for (let i = 1; i <= photosQuantity; i++) {
+    let obj = {
+      id: i,
+      url: `photos/${i}.jpg`,
+      description: `Фото ${getRandomIntInclusive(1, photoDescriptionCount)}`,
+      likes: LIKES[getRandomIntInclusive(15, LIKES.length)],
+      comments: COMMENTS[getRandomIntInclusive(0, COMMENTS.length)],
+    };
+
+    photosArray.push(obj);
+  }
+
+  return photosArray;
 };
-
-const photos = Array.from({length: photoDescriptionCount}, createPhotoDescription);//Создаём и наполняем массив созданными объектами
-
-for (let i = 0; i < photos.length; i++) {//Цикл для заполнения ключа id и url в созданных объектах
-  photos[i].id = i + 1;
-  photos[i].url = `photos/${i + 1}.jpg`;
-}
