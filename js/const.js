@@ -1,7 +1,8 @@
 import {getRandomIntInclusive} from './util.js';
+
 //Временные данные для описания фотографий
 
-const photoDescriptionCount = 25;//Количество объектов которые нужно создать
+const photoDescriptionCount = 25;//Количество объектов которые нужно создать для описания фотографий
 
 const createArrayLikes = function (count) {//Функция для создания массива с данными LIKES
   const likes = [];
@@ -23,20 +24,4 @@ const createArrayComments = function (count) {//Функция для созда
 
 const COMMENTS = createArrayComments(photoDescriptionCount);//Массив с данными COMMENTS
 
-const createPhotosArray = function (photosQuantity) {//Функция для создания массива из объектов с описанием фотографий
-  const photosArray = [];
-
-  for (let i = 1; i <= photosQuantity; i++) {
-    const obj = {
-      id: i,
-      url: `photos/${i}.jpg`,
-      description: `Фото ${getRandomIntInclusive(1, photoDescriptionCount)}`,
-      likes: LIKES[getRandomIntInclusive(15, LIKES.length)],
-      comments: COMMENTS[getRandomIntInclusive(0, COMMENTS.length)],
-    };
-
-    photosArray.push(obj);
-  }
-
-  return photosArray;
-};
+export {photoDescriptionCount, LIKES, COMMENTS};
