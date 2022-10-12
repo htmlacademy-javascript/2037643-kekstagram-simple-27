@@ -1,4 +1,4 @@
-import {createPhotosArray} from './CREATE_PHOTOS_DESCRIPTION.js';
+import {createPhotosArray} from './create-photos-description.js';
 import {photoDescriptionCount} from './const.js';
 
 const photoTemplate = document.querySelector('#picture').content.querySelector('.picture');
