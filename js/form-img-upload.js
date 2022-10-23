@@ -5,6 +5,8 @@ const inputFileUpload = form.querySelector('#upload-file');
 const imgUploadOverlay = form.querySelector('.img-upload__overlay');
 const buttonUploatCancel = form.querySelector('#upload-cancel');
 const imgUploadSubmit = form.querySelector('.img-upload__submit');
+const imgUploadPreview = document.querySelector('.img-upload__preview');
+const img = imgUploadPreview.querySelector('img');
 
 function onImgEditorOpen () {
   imgUploadOverlay.classList.remove('hidden');
@@ -15,6 +17,8 @@ function onImgEditorOpen () {
 function onImgEditorClose () {
   imgUploadOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
+  img.style.transform = `scale(${1})`;
+  inputFileUpload.value = '';
   document.removeEventListener('keydown', onImgEditorCloseKeydownEscape);
 }
 
