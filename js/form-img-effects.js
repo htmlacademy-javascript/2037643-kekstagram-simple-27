@@ -63,8 +63,16 @@ function onEffectChange (evt) {
     img.classList.add(classImg);
     scaleControlValue.value = `${100}%`;
     img.style.transform = `scale(${1})`;
+  }
 
-    if (evt.target.value === 'chrome') {
+  if (evt.target.value === 'none') {
+    sliderContainer.style.display = 'none';
+  } else {
+    sliderContainer.style.display = 'block';
+  }
+
+  switch(evt.target.value) {
+    case 'chrome':
       slider.noUiSlider.updateOptions({
         range: {
           min: 0,
@@ -73,9 +81,8 @@ function onEffectChange (evt) {
         start: 1,
         step: 0.1,
       });
-    }
-
-    if (evt.target.value === 'sepia') {
+      break;
+    case 'sepia':
       slider.noUiSlider.updateOptions({
         range: {
           min: 0,
@@ -84,9 +91,8 @@ function onEffectChange (evt) {
         start: 1,
         step: 0.1,
       });
-    }
-
-    if (evt.target.value === 'marvin') {
+      break;
+    case 'marvin':
       slider.noUiSlider.updateOptions({
         range: {
           min: 0,
@@ -95,9 +101,8 @@ function onEffectChange (evt) {
         start: 100,
         step: 1,
       });
-    }
-
-    if (evt.target.value === 'phobos') {
+      break;
+    case 'phobos':
       slider.noUiSlider.updateOptions({
         range: {
           min: 0,
@@ -106,9 +111,8 @@ function onEffectChange (evt) {
         start: 3,
         step: 0.1,
       });
-    }
-
-    if (evt.target.value === 'heat') {
+      break;
+    case 'heat':
       slider.noUiSlider.updateOptions({
         range: {
           min: 1,
@@ -117,13 +121,7 @@ function onEffectChange (evt) {
         start: 3,
         step: 0.1,
       });
-    }
-
-    if (evt.target.value === 'none') {
-      sliderContainer.style.display = 'none';
-    } else {
-      sliderContainer.style.display = 'block';
-    }
+      break;
   }
 }
 
