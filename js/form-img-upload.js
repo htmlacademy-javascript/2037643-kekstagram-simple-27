@@ -1,4 +1,6 @@
 // Модуль для загрузки изображений
+import {sendData} from './server.js';
+import {formImgUploadReset} from './form-img-upload-reset.js';
 
 const form = document.querySelector('.img-upload__form');
 const inputFileUpload = form.querySelector('#upload-file');
@@ -12,6 +14,7 @@ function onImgEditorOpen () {
   imgUploadOverlay.classList.remove('hidden');
   document.body.classList.add('modal-open');
   document.addEventListener('keydown', onImgEditorCloseKeydownEscape);
+  imgUploadSubmit.removeAttribute('disabled');
 }
 
 function onImgEditorClose () {
@@ -19,6 +22,7 @@ function onImgEditorClose () {
   document.body.classList.remove('modal-open');
   img.style.transform = `scale(${1})`;
   inputFileUpload.value = '';
+  formImgUploadReset();
   document.removeEventListener('keydown', onImgEditorCloseKeydownEscape);
 }
 
@@ -30,7 +34,11 @@ function onImgEditorCloseKeydownEscape (evt) {
   }
 }
 
-function onImgUploadSubmitDisabled () {
+function onImgUploadSubmit (evt) {
+  evt.preventDefault();
+  const formData = new FormData(form);
+  sendData(formData, onImgEditorClose);
+
   imgUploadSubmit.setAttribute('disabled', 'disabled');
 }
 
@@ -40,4 +48,4 @@ buttonUploatCancel.addEventListener('click', onImgEditorClose);
 
 document.removeEventListener('keydown', onImgEditorCloseKeydownEscape);
 
-form.addEventListener('submit', onImgUploadSubmitDisabled);
+form.addEventListener('submit', onImgUploadSubmit);
