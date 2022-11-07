@@ -2,7 +2,7 @@ const message = document.querySelector('#success').content.querySelector('.succe
 const buttonMessageClose = message.querySelector('.success__button');
 const messageBlock = document.querySelector('#success').content.querySelector('.success__inner');
 
-function messageSucces () {
+function showMessageSucces () {
   document.body.appendChild(message);
 
   function onButtonCloseClick () {
@@ -29,4 +29,4 @@ function messageSucces () {
   document.addEventListener('keydown', onButtonCloseKeydown);
 }
 
-export {messageSucces};
+export {showMessageSucces};
