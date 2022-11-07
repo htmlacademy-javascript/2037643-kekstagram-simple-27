@@ -1,5 +1,7 @@
 //Функция проверки минимальной и максимальной длины строки
 
-function commentLength (stroke, maxLength) {
+function getMaxCommentLength (stroke, maxLength) {
   return stroke.length <= maxLength;
 }
+
+getMaxCommentLength();

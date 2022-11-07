@@ -1,4 +1,4 @@
-const errorMessage = function (message) {
+const createErrorMessage = function (message) {
   const errorContainer = document.createElement('div');
   errorContainer.style.zIndex = '100';
   errorContainer.style.position = 'absolute';
@@ -12,4 +12,4 @@ const errorMessage = function (message) {
   document.body.append(errorContainer);
 };
 
-export {errorMessage};
+export {createErrorMessage};
