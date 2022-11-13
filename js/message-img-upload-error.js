@@ -7,6 +7,7 @@ function showMessageError () {
 
   function onButtonCloseClick () {
     document.body.removeChild(message);
+    buttonMessageClose.removeEventListener('click', onButtonCloseClick);
   }
 
   function onCloseClick (evt) {
