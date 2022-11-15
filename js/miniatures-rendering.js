@@ -2,7 +2,7 @@ const photoTemplate = document.querySelector('#picture').content.querySelector('
 const photoList = document.querySelector('.pictures');
 const photosFragment = document.createDocumentFragment();
 
-const createPhotos = function (photos) {
+const createPhotos = (photos) => {
   photos.forEach((value) => {
     const photoElement = photoTemplate.cloneNode(true);
     photoElement.querySelector('.picture__img').src = value.url;

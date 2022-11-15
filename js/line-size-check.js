@@ -3,8 +3,6 @@ import {MAX_LENGTH_COMMENT} from './const.js';
 
 const comment = document.querySelector('.text__description');
 
-function getMaxCommentLength (stroke, maxLength) {
-  return stroke.length <= maxLength;
-}
+const getMaxCommentLength = (stroke, maxLength) => stroke.length <= maxLength;
 
 getMaxCommentLength(comment, MAX_LENGTH_COMMENT);

@@ -11,7 +11,7 @@ fetch(GET_DATA)
   .then((data) => createPhotos(data))
   .catch(() => createErrorMessage('Не удалось загрузить изображения, попробуйте обновить страницу'));
 
-const sendData = function (formData, onSucces) {
+const sendData = (formData, onSucces) => {
   fetch(POST_DATA,
     {
       method: 'POST',
@@ -23,8 +23,6 @@ const sendData = function (formData, onSucces) {
         formImgUploadReset();
         showMessageSucces();
       } else {
-        onSucces();
-        formImgUploadReset();
         showMessageError();
       }
     })
