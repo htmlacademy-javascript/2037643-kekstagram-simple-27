@@ -1,4 +1,4 @@
-const createErrorMessage = function (message) {
+const createErrorMessage = (message) => {
   const errorContainer = document.createElement('div');
   errorContainer.style.zIndex = '100';
   errorContainer.style.position = 'absolute';

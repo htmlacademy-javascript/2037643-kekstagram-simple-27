@@ -54,7 +54,7 @@ slider.noUiSlider.on('update', () => {
   }
 });
 
-function onEffectChange (evt) {
+const onEffectChange = (evt) => {
   if (evt.target.matches('input[type="radio"]')) {
     img.removeAttribute('class');
     img.style.removeProperty('filter');
@@ -116,12 +116,8 @@ function onEffectChange (evt) {
       });
     }
 
-    if (evt.target.value === 'none') {
-      sliderContainer.style.display = 'none';
-    } else {
-      sliderContainer.style.display = 'block';
-    }
+    sliderContainer.style.display = evt.target.value === 'none' ? 'none' : 'block';
   }
-}
+};
 
 effectsList.addEventListener('change', onEffectChange);
